@@ -6,38 +6,53 @@ const app = express()
 const ExpressError = require('./expressError')
 const cors = require("cors")
 
-/*
-const employee_territoriesRoutes    = require('./routes/employeeTerritories');
+
+const customersRoutes    = require('./routes/customers')
 const order_detailsRoutes    = require('./routes/orderDetails')
 const ordersRoutes    = require('./routes/orders')
-const customersRoutes    = require('./routes/customers')
+const employeesRoutes    = require('./routes/employees')
 const productsRoutes    = require('./routes/products')
 const shippersRoutes    = require('./routes/shippers')
 const suppliersRoutes = require('./routes/suppliers')
+const employee_territoriesRoutes    = require('./routes/employeeTerritories');
+
+
+
+
+
+
 const territoriesRoutes    = require('./routes/territories')
 const us_statesRoutes    = require('./routes/us_states')
 const categoriesRoutes    = require('./routes/categories')
 const regionRoutes    = require('./routes/region')
-const employeesRoutes    = require('./routes/employees')
-*/
+
 
 app.use(cors())
 app.use(express.json())
 
-/*
-
-app.use("/employee_territories",employee_territoriesRoutes);
+app.use("/customers",customersRoutes);
 app.use("/order-details",order_detailsRoutes);
 app.use("/orders",ordersRoutes);
-app.use("/customers",customersRoutes);
+app.use("/employees",employeesRoutes);
 app.use("/products",productsRoutes);
-app.use("/shippers",shippersRoutes);
 app.use("/suppliers",suppliersRoutes);
+app.use("/shippers",shippersRoutes);
+app.use("/employee_territories",employee_territoriesRoutes);
+
 app.use("/territories",territoriesRoutes);
 app.use("/us_states",us_statesRoutes);
 app.use("/categories",categoriesRoutes);
 app.use("/region",regionRoutes);
-app.use("/employees",employeesRoutes);
+/*
+
+
+
+
+
+
+
+
+
 */
 
 
@@ -67,3 +82,5 @@ return response.status(status).json({
 
 
 })
+
+module.exports = app

@@ -37,22 +37,7 @@ class OrdersModel{
 		}
 	}
 
-CREATE TABLE orders (
-    order_id smallint NOT NULL,
-    customer_id character varying(5),
-    employee_id smallint,
-    order_date date,
-    required_date date,
-    shipped_date date,
-    ship_via smallint,
-    freight real,
-    ship_name character varying(40),
-    ship_address character varying(60),
-    ship_city character varying(15),
-    ship_region character varying(15),
-    ship_postal_code character varying(10),
-    ship_country character varying(15)
-);
+
 		static async getById(Id){
 		try{
 				const result = await db.query(`SELECT * FROM orders WHERE order_id=$1`,[Id])

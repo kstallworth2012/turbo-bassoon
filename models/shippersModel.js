@@ -23,11 +23,11 @@ class shippersModel{
 			console.log(error)
 		}
 	}
-CREATE TABLE shippers (
-    shipper_id smallint NOT NULL,
-    company_name character varying(40) NOT NULL,
-    phone character varying(24)
-);
+// CREATE TABLE shippers (
+//     shipper_id smallint NOT NULL,
+//     company_name character varying(40) NOT NULL,
+//     phone character varying(24)
+// );
 
 
 

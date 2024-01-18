@@ -3,11 +3,11 @@ const { BadRequestError, ExpressError, NotFoundError } = require('../expressErro
 
 class categoriesModel{
 
-	// static async create(){
+	// static async create(data){
 	// 	try{
-	// 		const duplicateCheck = await db.query(`SELECT order_id FROM orders WHERE order_id=$1`)
+	// 		const duplicateCheck = await db.query(`SELECT category_id FROM orders WHERE category_id=$1`)
 	// 		   	if(duplicateCheck.rows[0])
-	// 					throw new BadRequestError(`Duplicate Order details: ${data.order_id}`)
+	// 					throw new BadRequestError(`Duplicate Order details: ${data.category_id}`)
 
 
 	// 	}catch(error){
@@ -25,13 +25,21 @@ class categoriesModel{
 	}
 
 
-	// 	static async getById(){
-	// 	try{
+		static async getById(Id){
+		try{
+					const result = await db.query(`SELECT * FROM categories WHERE category_id=$1`,[Id])
 
-	// 	}catch(error){
-	// 		console.log(error)
-	// 	}
-	// }
+					const category = result.rows[0]
+
+					if(!category){
+							throw new NotFoundError(`Category Not Found ${Id}`)
+					}
+
+					return category
+		}catch(error){
+			console.log(error)
+		}
+	}
 
 
 	// 	static async update(){

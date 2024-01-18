@@ -26,13 +26,21 @@ class regionModel{
 	}
 
 
-	// 	static async getById(){
-	// 	try{
+		static async getById(id){
+		try{
+					const result = await db.query(`SELECT * FROM region WHERE region_id=$1`,[id])
+					const region = result.rows[0]
+					if(!region){
+						throw new NotFoundError(`Region Not Found ${id}`)
 
-	// 	}catch(error){
-	// 		console.log(error)
-	// 	}
-	// }
+					}
+
+					return region
+
+		}catch(error){
+			console.log(error)
+		}
+	}
 
 
 	// 	static async update(){

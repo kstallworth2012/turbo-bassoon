@@ -6,7 +6,10 @@ router.get('/', async (request,response,next)=>{
 	try{
 		     const result = await productsModel.getAll()
 
-		     return response.json({"Products":result})
+		     return response.json({
+		     	count: result.length,
+		     	"data":result
+		     })
 
 	}catch(e){
 	return next(e)

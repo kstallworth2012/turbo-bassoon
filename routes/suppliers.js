@@ -5,7 +5,9 @@ const suppliersModel = require('../models/suppliersModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			 const result = await suppliersModel.getAll()
-		     return response.json({"Suppliers":result})
+		     return response.json({
+		     	count: result.length,
+		     	"Suppliers":result})
 
 	}catch(e){
 	return next(e)

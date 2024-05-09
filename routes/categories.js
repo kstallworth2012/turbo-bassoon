@@ -5,7 +5,9 @@ const categoriesModel = require('../models/categoriesModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			 const results = await categoriesModel.getAll()
-		     return response.json({"Categories":results})
+		     return response.json({
+		     	count: results.length,
+		     	"Categories":results})
 
 	}catch(e){
 	return next(e)

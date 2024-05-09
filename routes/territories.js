@@ -6,7 +6,9 @@ router.get('/', async (request,response,next)=>{
 	try{	
 
 			  const result = await territoriesModel.getAll()
-		     return response.json({"Territories":result})
+		     return response.json({
+		     	count: result.length,
+		     	"Territories":result})
 
 	}catch(e){
 	return next(e)

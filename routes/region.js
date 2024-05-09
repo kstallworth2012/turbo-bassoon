@@ -5,7 +5,9 @@ const regionModel = require('../models/regionModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			 const results = await regionModel.getAll()
-		     return response.json({"Regions":results})
+		     return response.json({
+		     	count: results.length,
+		     	"Regions":results})
 
 	}catch(e){
 	return next(e)

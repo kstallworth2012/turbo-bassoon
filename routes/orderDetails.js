@@ -5,7 +5,9 @@ const order_detailsModel = require('../models/order_detailsModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			 const result = await order_detailsModel.getAll()
-		     return response.json({"Order Details":result})
+		     return response.json({
+		     	count: result.length,
+		     	"Order Details":result})
 
 	}catch(e){
 	return next(e)

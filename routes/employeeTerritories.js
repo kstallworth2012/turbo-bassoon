@@ -5,7 +5,9 @@ const Employee_TerritoriesModel = require('../models/Employee_TerritoriesModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			  const result = await Employee_TerritoriesModel.getAll() 
-		     return response.json({"EmployeeTerritories":result})
+		     return response.json({
+		     	count: result.length,
+		     	"EmployeeTerritories":result})
 
 	}catch(e){
 	return next(e)

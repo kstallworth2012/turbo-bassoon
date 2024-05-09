@@ -5,7 +5,9 @@ const us_statesModel = require('../models/us_statesModel')
 router.get('/', async (request,response,next)=>{
 	try{
 			 const result = await us_statesModel.getAll()
-		     return response.json({"States":result})
+		     return response.json({
+		     	count: result.length,
+		     	"States":result})
 
 	}catch(e){
 	return next(e)

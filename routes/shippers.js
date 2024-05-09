@@ -6,7 +6,9 @@ router.get('/', async (request,response,next)=>{
 	try{
 			const result = await shippersModel.getAll()
 
-		     return response.json({"Shippers":result})
+		     return response.json({
+		     	count: result.length,
+		     	"Shippers":result})
 
 	}catch(e){
 	return next(e)

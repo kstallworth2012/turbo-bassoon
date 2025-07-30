@@ -27,6 +27,15 @@ router.get('/category-suppliers', async (request,response,next)=>{
 	}
 })
 
+router.get('/alpha-order', async (request,response,next)=>{
+	try{
+		const result = await productsModel.getByAlphaOrder()
+		return response.json({"Products":result})
+
+	}catch(e){
+		return next(e)
+	}
+})
 
 /*
 CREATE VIEW ProductsByCategoryAndSupplier AS

@@ -68,6 +68,18 @@ class productsModel{
 		}
 	}
 
+
+	static async getByAlphaOrder(	){
+		try{
+			const result = await db.query(`select products.*, categories.category_name
+    from categories inner join products on categories.category_id = products.category_id
+    where (((products.discontinued)=0))`)
+			return result.rows
+		}catch(error){
+			console.log(error)
+		}
+	}
+
 		static async update(){
 		try{
 					       const result = await db.query(`

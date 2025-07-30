@@ -12,7 +12,6 @@ router.get('/', async (request,response,next)=>{
 	}
 })
 
-
 router.get('/:id', async function (request,response,next){
  	try{
 				const {id} =request.params

@@ -16,7 +16,10 @@ router.get('/', async (request,response,next)=>{
 
 router.get('/:id', async function (request,response,next){
 	try{
-				return response.json({"GET":"BY ID"})
+
+				const{id} = request.params
+				const result = await suppliersModel.getById(id)
+				return response.json({"Supplier":result})
 	}catch(e){
 	return next(e)
 	}

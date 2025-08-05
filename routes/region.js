@@ -16,7 +16,9 @@ router.get('/', async (request,response,next)=>{
 
 router.get('/:id', async function (request,response,next){
 	try{
-				return response.json({"GET":"BY ID"})
+				const {id} = request.params;
+				const result = await regionModel.getById(id)
+				return response.json({"Region":result})
 	}catch(e){
 	return next(e)
 	}

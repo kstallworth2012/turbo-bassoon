@@ -30,21 +30,21 @@ class Employee_TerritoriesModel {
 	}
 
 
-// 		static async getById(employee_id){
-// 		try{
-// 				const result = await db.query(`SELECT * FROM employee_territories
-// 						 WHERE employee_id=$1`,[employee_id])
-// 			    const employee_territory = result.rows[0]
+		static async getById(employee_id){
+		try{
+				const result = await db.query(`SELECT * FROM employee_territories
+						 WHERE employee_id=$1`,[employee_id])
+			    const employee_territory = result.rows[0]
 
-// 			    if(!employee_territory){
-// 			    	throw new NotFoundError(`NO employee territory FOUND`)
-// 			    }
-// 			    return employee_territory
+			    if(!employee_territory){
+			    	throw new NotFoundError(`NO employee territory FOUND`)
+			    }
+			    return employee_territory
 
-// 		}catch(error){
-// 			console.log(error)
-// 		}
-// 	}
+		}catch(error){
+			console.log(error)
+		}
+	}
 
 
 // 		static async update(data){
